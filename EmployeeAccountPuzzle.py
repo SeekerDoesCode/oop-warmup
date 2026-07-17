@@ -20,7 +20,7 @@ class EmployeeAccount:
     def disable_account(self):
         self.is_active = False
         self.disabled_date = date.today()
-    def summary(self):
+    def __str__(self):
         return f"Username: {self.username}\nEmail: {self.email}\nDepartment: {self.department}\nActive?: {self.is_active}\nNumber of Groups: {len(self.group_membership)}"
 
 employee1 = EmployeeAccount("zparmentier", "zparmentier@company.com", "IT")
@@ -34,9 +34,9 @@ employee2.fail_logon()
 employee2.fail_logon()
 employee2.fail_logon()
 employee1.disable_account()
-print(employee1.summary())
+print(employee1)
 print("Disabled?:")
 print(hasattr(employee1, "disabled_date"))
-print(employee2.summary())
+print(employee2)
 print("Disabled?")
 print(hasattr(employee2, "disabled_date"))
